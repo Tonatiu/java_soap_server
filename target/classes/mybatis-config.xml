@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url"
+					value="jdbc:mysql://localhost:3306/school" />
+				<property name="username" value="root" />
+				<property name="password" value="" />
+			</dataSource>
+
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="com/escom/schoolsaes/xml/AlumnoMapper.xml" />
+		<mapper resource="com/escom/schoolsaes/xml/CalificacionAlumnoMapper.xml" />
+		<mapper resource="com/escom/schoolsaes/xml/CalificacionMapper.xml" />
+		<mapper resource="com/escom/schoolsaes/xml/CarreraInstitucionMapper.xml" />
+		<mapper resource="com/escom/schoolsaes/xml/CarreraMapper.xml" />
+		<mapper resource="com/escom/schoolsaes/xml/CentroestudiosMapper.xml" />
+		<mapper resource="com/escom/schoolsaes/xml/ExamenMapper.xml" />
+		<mapper resource="com/escom/schoolsaes/xml/MateriaMapper.xml" />
+		<mapper resource="com/escom/schoolsaes/xml/ParcialMapper.xml" />
+		<mapper resource="com/escom/schoolsaes/xml/PlanEstudiosMapper.xml" />
+		<mapper resource="com/escom/schoolsaes/xml/PreguntaExamenRespuestaMapper.xml" />
+		<mapper resource="com/escom/schoolsaes/xml/PreguntaMapper.xml" />
+		<mapper resource="com/escom/schoolsaes/xml/RespuestaMapper.xml" />
+	</mappers>
+	
+</configuration>
