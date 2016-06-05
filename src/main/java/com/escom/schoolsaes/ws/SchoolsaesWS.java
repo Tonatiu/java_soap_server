@@ -109,8 +109,8 @@ public class SchoolsaesWS {
 		}
 	}
 	
-	@WebMethod
-	public int insertarAlumno(Alumno alumno){
+	@WebMethod(operationName="insertarAlumno")
+	public int insertarAlumno(@WebParam(name="alumno")Alumno alumno){
 		try {
 			System.out.println("####################################");
 			System.out.println("Operacion Agregar en Alumno");
@@ -182,8 +182,44 @@ public class SchoolsaesWS {
 		}
 	}
 	
-	@WebMethod
-	public int insertarCalificacionAlumno(CalificacionAlumno calificacionAlumno){
+	@WebMethod(operationName="obtenerCarreras")
+	public List<Carrera> obtenerCarreras(){
+		try {
+			System.out.println("####################################");
+			System.out.println("Obtener Carreras ");
+			List<Carrera> carrs=new CarreraService().obtenerCarreras();
+			System.out.println("Carreras Obtenidas :)");
+			return carrs;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Error al obtener calificaciones :(");
+			return null;
+		}finally {
+			System.out.println("####################################\n");	
+		}
+	}
+	
+	@WebMethod(operationName="obtenerExamenesPorCarrera")
+	public List<Examen> obtenerExamenesPorCarrera(@WebParam(name="id_carrera")int id_carrera){
+		try {
+			System.out.println("####################################");
+			System.out.println("Obtener Examenes por carrera ");
+			List<Examen> exams =new ExamenService().obtenerPorCarrera(id_carrera);
+			System.out.println("Examenes por carrera Obtenidos :)");
+			return exams;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Error al obtener calificaciones :(");
+			return null;
+		}finally {
+			System.out.println("####################################\n");	
+		}
+	}
+	
+	@WebMethod(operationName="insertarCalificacionAlumno")
+	public int insertarCalificacionAlumno(@WebParam(name="calificacionAlumno")CalificacionAlumno calificacionAlumno){
 		try {
 			System.out.println("####################################");
 			System.out.println("Agregando Calificacion Alumno");
@@ -336,8 +372,8 @@ public class SchoolsaesWS {
 	 * @param examen
 	 * @return
 	 */
-	@WebMethod
-	public int insertarExamen(Examen examen){
+	@WebMethod(operationName="insertarExamen")
+	public int insertarExamen(@WebParam(name="examen")Examen examen){
 		try {
 			System.out.println("####################################");
 			System.out.println("Insertando Examen ");

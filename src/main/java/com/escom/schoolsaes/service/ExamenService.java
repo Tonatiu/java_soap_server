@@ -36,6 +36,12 @@ public class ExamenService {
 		}
 
 	}
+	
+	public List<Examen> obtenerPorCarrera(int id_carrera)throws IOException{
+		ExamenExample exam = new ExamenExample();
+		exam.createCriteria().andId_CarreraEqualTo(id_carrera);
+		return ejecutarExample(exam);
+	}
 
 	public void insertarExamen(Examen examen) throws IOException {
 
